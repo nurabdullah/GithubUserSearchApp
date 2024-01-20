@@ -59,6 +59,10 @@ class UserViewController: UIViewController {
              }.resume()
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Hata", message: message, preferredStyle: .alert)

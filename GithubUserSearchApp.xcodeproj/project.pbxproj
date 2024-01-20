@@ -137,8 +137,8 @@
 			children = (
 				D91456C32B5C8334006A06DA /* App */,
 				D91456C22B5C8325006A06DA /* Support */,
-				D91456B62B5C5DCD006A06DA /* Service */,
 				D91456C42B5C8367006A06DA /* Screen */,
+				D91456B62B5C5DCD006A06DA /* Service */,
 				D91456B42B5C5D94006A06DA /* Scenes */,
 			);
 			path = GithubUserSearchApp;
