@@ -12,7 +12,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var publicRepoCountLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var createdAtLabel: UILabel!
+    @IBOutlet weak var createdAccountDateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
 
     private var userViewModel = UserViewModel()
@@ -23,7 +23,7 @@ class UserViewController: UIViewController {
 
     @IBAction func getUserInfoButtonPressed(_ sender: UIButton) {
         guard let username = usernameTextField.text, !username.isEmpty else {
-            showAlert(message: "Please enter a username.")
+            showAlert(message: "Lütfen kullanıcı adı giriniz.")
             return
         }
 
@@ -43,9 +43,9 @@ class UserViewController: UIViewController {
     }
 
     private func updateUI() {
-        usernameLabel.text = "Username: \(userViewModel.username)"
-        publicRepoCountLabel.text = "Username: \(userViewModel.publicRepoCount)"
-        createdAtLabel.text = userViewModel.createdAt
+        usernameLabel.text = userViewModel.username
+        publicRepoCountLabel.text = "\(userViewModel.publicRepoCount)"
+        createdAccountDateLabel.text = userViewModel.createdAt
         locationLabel.text = userViewModel.location
 
         if let avatarURL = userViewModel.avatarURL {
@@ -61,8 +61,8 @@ class UserViewController: UIViewController {
     }
 
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        let alert = UIAlertController(title: "Hata", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 }

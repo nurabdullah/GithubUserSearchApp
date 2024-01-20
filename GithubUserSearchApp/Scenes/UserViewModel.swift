@@ -30,11 +30,11 @@ class UserViewModel {
     }
 
     var createdAt: String {
-        return "Joined: \(user?.created_at ?? "")"
+        return user?.created_at ?? ""
     }
 
     var location: String {
-        return "Location: \(user?.location ?? "Unknown")"
+        return user?.location ?? ""
     }
 
     var avatarURL: URL? {
