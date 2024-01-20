@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GithubUserSearchApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="UserViewController" customModule="GithubUserSearchApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                         <connections>
-                                            <action selector="userSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qnB-Jz-n46"/>
+                                            <action selector="getUserInfoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o6S-4H-BL8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -144,12 +144,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="accountOpenDate" destination="ux8-5Q-Qom" id="PXF-fb-3Dt"/>
-                        <outlet property="location" destination="njf-nI-cmt" id="rLH-dx-tSN"/>
-                        <outlet property="name" destination="2hb-tc-Hvm" id="m8V-BD-QIJ"/>
-                        <outlet property="publicRepoCount" destination="iNI-uS-r06" id="Uug-HE-FeP"/>
-                        <outlet property="userImage" destination="Xay-r5-34A" id="oZM-Je-GXz"/>
-                        <outlet property="userNameField" destination="1gL-oW-9j3" id="teR-XO-d89"/>
+                        <outlet property="avatarImageView" destination="Xay-r5-34A" id="f2H-a4-gjJ"/>
+                        <outlet property="createdAtLabel" destination="iNI-uS-r06" id="6sR-BF-2Me"/>
+                        <outlet property="locationLabel" destination="njf-nI-cmt" id="8HF-xi-Y3L"/>
+                        <outlet property="usernameLabel" destination="2hb-tc-Hvm" id="A8v-Tx-Ccf"/>
+                        <outlet property="usernameTextField" destination="1gL-oW-9j3" id="Qgy-zt-G3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
