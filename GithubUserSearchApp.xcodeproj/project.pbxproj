@@ -77,12 +77,41 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		D91456B62B5C5DCD006A06DA /* Api */ = {
+		D91456B62B5C5DCD006A06DA /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				D91456B72B5C5DE9006A06DA /* ApiService.swift */,
 			);
-			path = Api;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D91456C22B5C8325006A06DA /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				D9E893F32B5B13E200CE7919 /* Info.plist */,
+				D9E893EB2B5B13E000CE7919 /* GithubUserSearchApp.xcdatamodeld */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		D91456C32B5C8334006A06DA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D9E893E22B5B13E000CE7919 /* AppDelegate.swift */,
+				D9E893E42B5B13E000CE7919 /* SceneDelegate.swift */,
+			);
+			name = App;
+			path = "Aüüa";
+			sourceTree = "<group>";
+		};
+		D91456C42B5C8367006A06DA /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				D9E893EE2B5B13E200CE7919 /* Assets.xcassets */,
+				D9E893E82B5B13E000CE7919 /* Main.storyboard */,
+				D9E893F02B5B13E200CE7919 /* LaunchScreen.storyboard */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 		D9E893D62B5B13E000CE7919 = {
@@ -106,15 +135,11 @@
 		D9E893E12B5B13E000CE7919 /* GithubUserSearchApp */ = {
 			isa = PBXGroup;
 			children = (
-				D9E893E22B5B13E000CE7919 /* AppDelegate.swift */,
-				D9E893E42B5B13E000CE7919 /* SceneDelegate.swift */,
-				D91456B62B5C5DCD006A06DA /* Api */,
+				D91456C32B5C8334006A06DA /* App */,
+				D91456C22B5C8325006A06DA /* Support */,
+				D91456B62B5C5DCD006A06DA /* Service */,
+				D91456C42B5C8367006A06DA /* Screen */,
 				D91456B42B5C5D94006A06DA /* Scenes */,
-				D9E893E82B5B13E000CE7919 /* Main.storyboard */,
-				D9E893EE2B5B13E200CE7919 /* Assets.xcassets */,
-				D9E893F02B5B13E200CE7919 /* LaunchScreen.storyboard */,
-				D9E893F32B5B13E200CE7919 /* Info.plist */,
-				D9E893EB2B5B13E000CE7919 /* GithubUserSearchApp.xcdatamodeld */,
 			);
 			path = GithubUserSearchApp;
 			sourceTree = "<group>";
@@ -395,7 +420,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MLR3L2S47H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubUserSearchApp/Info.plist;
+				INFOPLIST_FILE = GithubUserSearchApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -424,7 +449,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MLR3L2S47H;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GithubUserSearchApp/Info.plist;
+				INFOPLIST_FILE = GithubUserSearchApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

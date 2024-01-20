@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 
 class ApiService {
+    
+    
     static let shared = ApiService()
 
     private let baseURL = "https://api.github.com/users/"
