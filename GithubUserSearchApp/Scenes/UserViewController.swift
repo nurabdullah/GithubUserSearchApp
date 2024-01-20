@@ -10,6 +10,7 @@ import UIKit
 class UserViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var publicRepoCountLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -35,7 +36,7 @@ class UserViewController: UIViewController {
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    self?.showAlert(message: "Failed to fetch user information.")
+                    self?.showAlert(message: "Kullanıcı bulunamadı.")
                 }
             }
         }
@@ -43,6 +44,7 @@ class UserViewController: UIViewController {
 
     private func updateUI() {
         usernameLabel.text = "Username: \(userViewModel.username)"
+        publicRepoCountLabel.text = "Username: \(userViewModel.publicRepoCount)"
         createdAtLabel.text = userViewModel.createdAt
         locationLabel.text = userViewModel.location
 

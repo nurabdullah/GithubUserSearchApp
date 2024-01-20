@@ -147,6 +147,7 @@
                         <outlet property="avatarImageView" destination="Xay-r5-34A" id="f2H-a4-gjJ"/>
                         <outlet property="createdAtLabel" destination="iNI-uS-r06" id="6sR-BF-2Me"/>
                         <outlet property="locationLabel" destination="njf-nI-cmt" id="8HF-xi-Y3L"/>
+                        <outlet property="publicRepoCountLabel" destination="ux8-5Q-Qom" id="y0p-hw-uMc"/>
                         <outlet property="usernameLabel" destination="2hb-tc-Hvm" id="A8v-Tx-Ccf"/>
                         <outlet property="usernameTextField" destination="1gL-oW-9j3" id="Qgy-zt-G3a"/>
                     </connections>

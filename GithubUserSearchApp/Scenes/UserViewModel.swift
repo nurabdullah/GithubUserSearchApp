@@ -25,6 +25,9 @@ class UserViewModel {
     var username: String {
         return user?.login ?? ""
     }
+    var publicRepoCount: Int {
+        return user?.public_repos ?? 0
+    }
 
     var createdAt: String {
         return "Joined: \(user?.created_at ?? "")"
