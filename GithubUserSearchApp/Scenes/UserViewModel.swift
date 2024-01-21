@@ -9,18 +9,19 @@ import Foundation
 
 class UserViewModel {
     private var user: User?
+ 
     
-    func getUserInfo(username: String, completion: @escaping (Result<User, Error>) -> Void) {
-        ApiService.shared.getUserInfo(username: username) { [weak self] result in
-            switch result {
-            case .success(let user):
-                self?.user = user
-                completion(.success(user))
-            case .failure(let error):
-                completion(.failure(error))
+    func getUserInfo(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
+            UserNetwork.shared.getUser(username: username) { [weak self] result in
+                switch result {
+                case .success(let user):
+                    self?.user = user
+                    completion(.success(()))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
         }
-    }
     
     var avatarURL: URL? {
         return URL(string: user?.avatar_url ?? "")

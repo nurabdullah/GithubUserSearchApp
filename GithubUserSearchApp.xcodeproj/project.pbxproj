@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7FDEA6EEFA73ABD9878B2676 /* Pods_GithubUserSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBB11F1AAD2E44D4A2C187F /* Pods_GithubUserSearchApp.framework */; };
-		D91456B82B5C5DE9006A06DA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91456B72B5C5DE9006A06DA /* ApiService.swift */; };
 		D91456BA2B5C5E16006A06DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91456B92B5C5E16006A06DA /* User.swift */; };
 		D91456BF2B5C6231006A06DA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91456BE2B5C6231006A06DA /* UserViewModel.swift */; };
 		D91456C12B5C6304006A06DA /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91456C02B5C6304006A06DA /* UserController.swift */; };
+		D9C72B692B5D38DB009423CD /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C72B682B5D38DB009423CD /* NetworkHelper.swift */; };
+		D9C72B6B2B5D38EF009423CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C72B6A2B5D38EF009423CD /* NetworkManager.swift */; };
+		D9C72B6E2B5D3C26009423CD /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C72B6D2B5D3C26009423CD /* UserNetwork.swift */; };
 		D9E893E32B5B13E000CE7919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E893E22B5B13E000CE7919 /* AppDelegate.swift */; };
 		D9E893E52B5B13E000CE7919 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E893E42B5B13E000CE7919 /* SceneDelegate.swift */; };
 		D9E893EA2B5B13E000CE7919 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9E893E82B5B13E000CE7919 /* Main.storyboard */; };
@@ -24,10 +26,12 @@
 		5DBB11F1AAD2E44D4A2C187F /* Pods_GithubUserSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubUserSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AA207D1F5C469486CEA3FC5 /* Pods-GithubUserSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubUserSearchApp.debug.xcconfig"; path = "Target Support Files/Pods-GithubUserSearchApp/Pods-GithubUserSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CAFB5805033F7C03F2745F60 /* Pods-GithubUserSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubUserSearchApp.release.xcconfig"; path = "Target Support Files/Pods-GithubUserSearchApp/Pods-GithubUserSearchApp.release.xcconfig"; sourceTree = "<group>"; };
-		D91456B72B5C5DE9006A06DA /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		D91456B92B5C5E16006A06DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D91456BE2B5C6231006A06DA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		D91456C02B5C6304006A06DA /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		D9C72B682B5D38DB009423CD /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		D9C72B6A2B5D38EF009423CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D9C72B6D2B5D3C26009423CD /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
 		D9E893DF2B5B13E000CE7919 /* GithubUserSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUserSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9E893E22B5B13E000CE7919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9E893E42B5B13E000CE7919 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,12 +81,13 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		D91456B62B5C5DCD006A06DA /* Service */ = {
+		D91456B62B5C5DCD006A06DA /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				D91456B72B5C5DE9006A06DA /* ApiService.swift */,
+				D9C72B6C2B5D3BC1009423CD /* CoreLayer */,
 			);
-			path = Service;
+			name = Network;
+			path = ../Network;
 			sourceTree = "<group>";
 		};
 		D91456C22B5C8325006A06DA /* Support */ = {
@@ -114,6 +119,16 @@
 			path = Screen;
 			sourceTree = "<group>";
 		};
+		D9C72B6C2B5D3BC1009423CD /* CoreLayer */ = {
+			isa = PBXGroup;
+			children = (
+				D9C72B682B5D38DB009423CD /* NetworkHelper.swift */,
+				D9C72B6A2B5D38EF009423CD /* NetworkManager.swift */,
+				D9C72B6D2B5D3C26009423CD /* UserNetwork.swift */,
+			);
+			path = CoreLayer;
+			sourceTree = "<group>";
+		};
 		D9E893D62B5B13E000CE7919 = {
 			isa = PBXGroup;
 			children = (
@@ -137,8 +152,8 @@
 			children = (
 				D91456C32B5C8334006A06DA /* App */,
 				D91456C22B5C8325006A06DA /* Support */,
+				D91456B62B5C5DCD006A06DA /* Network */,
 				D91456C42B5C8367006A06DA /* Screen */,
-				D91456B62B5C5DCD006A06DA /* Service */,
 				D91456B42B5C5D94006A06DA /* Scenes */,
 			);
 			path = GithubUserSearchApp;
@@ -259,11 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9C72B6B2B5D38EF009423CD /* NetworkManager.swift in Sources */,
+				D9C72B692B5D38DB009423CD /* NetworkHelper.swift in Sources */,
 				D91456C12B5C6304006A06DA /* UserController.swift in Sources */,
 				D9E893E32B5B13E000CE7919 /* AppDelegate.swift in Sources */,
 				D91456BF2B5C6231006A06DA /* UserViewModel.swift in Sources */,
 				D9E893ED2B5B13E000CE7919 /* GithubUserSearchApp.xcdatamodeld in Sources */,
-				D91456B82B5C5DE9006A06DA /* ApiService.swift in Sources */,
+				D9C72B6E2B5D3C26009423CD /* UserNetwork.swift in Sources */,
 				D91456BA2B5C5E16006A06DA /* User.swift in Sources */,
 				D9E893E52B5B13E000CE7919 /* SceneDelegate.swift in Sources */,
 			);

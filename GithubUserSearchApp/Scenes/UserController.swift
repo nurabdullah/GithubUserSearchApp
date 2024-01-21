@@ -27,7 +27,7 @@ class UserController: UIViewController {
             showAlert(message: "Lütfen kullanıcı adı giriniz.")
             return
         }
-
+       
         userViewModel.getUserInfo(username: username) { [weak self] result in
             switch result {
             case .success:
