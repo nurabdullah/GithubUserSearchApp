@@ -7,7 +7,8 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+class UserController: UIViewController {
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var publicRepoCountLabel: UILabel!

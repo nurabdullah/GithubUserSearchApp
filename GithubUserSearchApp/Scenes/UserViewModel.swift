@@ -22,7 +22,9 @@ class UserViewModel {
         }
     }
     
-    
+    var avatarURL: URL? {
+        return URL(string: user?.avatar_url ?? "")
+    }
     
     var username: String {
         return user?.login ?? ""
@@ -47,11 +49,6 @@ class UserViewModel {
     var location: String {
         return user?.location ?? ""
     }
-    
-    var avatarURL: URL? {
-        return URL(string: user?.avatar_url ?? "")
-    }
-    
     
 }
 

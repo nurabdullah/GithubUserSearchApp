@@ -11,14 +11,12 @@ import Alamofire
 
 class ApiService {
     
-    
     static let shared = ApiService()
 
     private let baseURL = "https://api.github.com/users/"
 
     func getUserInfo(username: String, completion: @escaping (Result<User, Error>) -> Void) {
         let url = baseURL + username
-
         AF.request(url)
             .responseDecodable(of: User.self) { response in
                 switch response.result {

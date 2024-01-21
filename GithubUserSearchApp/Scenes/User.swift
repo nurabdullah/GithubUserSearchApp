@@ -12,5 +12,5 @@ struct User: Codable {
     let public_repos: Int  
     let avatar_url: String
     let created_at: String
-    let location: String?
+    let location: String
 }
