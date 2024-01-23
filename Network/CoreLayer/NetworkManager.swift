@@ -12,7 +12,7 @@ class NetworkManager{
     static let shared = NetworkManager()
     
     func get(url: String, params: [String: Any], completion: @escaping (Result<Data, Error>) -> Void) {
-            AF.request(url, method: .get, parameters: params)
+            AF.request(NetworkHelper.shared.baseURL + url, method: .get, parameters: params)
                 .validate()
                 .responseJSON { response in
                     switch response.result {

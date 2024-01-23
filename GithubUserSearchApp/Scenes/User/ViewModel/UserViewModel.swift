@@ -8,9 +8,9 @@
 import Foundation
 
 class UserViewModel {
+    
     private var user: User?
  
-    
     func getUserInfo(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
             UserNetwork.shared.getUser(username: username) { [weak self] result in
                 switch result {

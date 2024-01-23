@@ -14,8 +14,7 @@ class UserNetwork{
     // login için bir kod register için başka bir kod gibi bu şekilde bir sürü açabiliriz bu yüzden burası var 
     
     func getUser(username: String, completion: @escaping (Result<User, Error>) -> Void) {
-            let url = NetworkHelper.shared.baseURL + "users/" + username
-            NetworkManager.shared.get(url: url, params: [:]) { result in
+            NetworkManager.shared.get(url: "users/" + username, params: [:]) { result in
                 switch result {
                 case .success(let data):
                     do {
@@ -29,5 +28,4 @@ class UserNetwork{
                 }
             }
         }
-    
 }
