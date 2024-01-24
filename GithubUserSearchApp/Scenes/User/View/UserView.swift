@@ -46,7 +46,6 @@ class UserView: UIViewController {
             switch result {
             case .success:
                 DispatchQueue.main.async {
-                    self?.updateUI()
                     print(self?.userViewModel.repoNames)
                 }
             case .failure(let error):
@@ -74,7 +73,6 @@ class UserView: UIViewController {
                 }
             }.resume()
         }
-        let repoNames = userViewModel.repoNames.joined(separator: ", ")
         
         
     }

@@ -10,24 +10,24 @@ import Foundation
 class UserViewModel {
     
     private var user: User?
-    private var repos: [Repo]?
-
-       var repoNames: [String] {
-           return repos?.map { $0.name } ?? []
-       }
-
- 
+    private var repos: [Repos]?
+    
+    var repoNames: [String] {
+        return repos?.map { $0.name } ?? []
+    }
+    
+    
     func getUserInfo(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
-            UserNetwork.shared.getUser(username: username) { [weak self] result in
-                switch result {
-                case .success(let user):
-                    self?.user = user
-                    completion(.success(()))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+        UserNetwork.shared.getUser(username: username) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.user = user
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
+    }
     func getUserRepos(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
         UserNetwork.shared.getUserRepos(username: username) { [weak self] result in
             switch result {

@@ -26,12 +26,12 @@ class UserNetwork {
             }
         }
     }
-    func getUserRepos(username: String, completion: @escaping (Result<[Repo], Error>) -> Void) {
+    func getUserRepos(username: String, completion: @escaping (Result<[Repos], Error>) -> Void) {
         NetworkManager.shared.get(url: "users/\(username)/repos", headers: NetworkHelper.shared.headers(), params: [:]) { result in
             switch result {
             case .success(let data):
                 do {
-                    let repos = try JSONDecoder().decode([Repo].self, from: data)
+                    let repos = try JSONDecoder().decode([Repos].self, from: data)
                     completion(.success(repos))
                 } catch {
                     completion(.failure(error))
