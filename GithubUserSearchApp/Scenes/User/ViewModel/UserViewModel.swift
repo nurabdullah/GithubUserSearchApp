@@ -46,6 +46,25 @@ class UserViewModel {
         }
     }
     
+    func printLanguageUsage(repoDetails: [(name: String, language: String?)]) {
+        var languageCounts: [String: Int] = [:]
+
+        for project in repoDetails {
+            if let language = project.language {
+                if let count = languageCounts[language] {
+                    languageCounts[language] = count + 1
+                } else {
+                    languageCounts[language] = 1
+                }
+            }
+        }
+
+        for (language, count) in languageCounts {
+            print("\(language): \(count) proje")
+        }
+    }
+        
+    
     var avatarURL: URL? {
         return URL(string: user?.avatar_url ?? "")
     }

@@ -42,11 +42,13 @@ class UserView: UIViewController {
             }
         }
         
+        
+        
         userViewModel.getUserRepos(username: username) { [weak self] result in
             switch result {
             case .success(let repoDetails):
                 DispatchQueue.main.async {
-                    print(repoDetails)
+                    self?.userViewModel.printLanguageUsage(repoDetails: repoDetails)
                 }
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
@@ -55,7 +57,9 @@ class UserView: UIViewController {
                 }
             }
         }
-    }
+        }
+    
+    
     
     
     private func updateUI() {
