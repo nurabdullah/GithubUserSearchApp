@@ -28,17 +28,24 @@ class UserViewModel {
             }
         }
     }
-    func getUserRepos(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        UserNetwork.shared.getUserRepos(username: username) { [weak self] result in
+    
+    func getUserRepos(username: String, completion: @escaping (Result<[(name: String, language: String?)], Error>) -> Void) {
+        NetworkManager.shared.get(url: "users/\(username)/repos", headers: NetworkHelper.shared.headers(), params: [:]) { result in
             switch result {
-            case .success(let repos):
-                self?.repos = repos
-                completion(.success(()))
+            case .success(let data):
+                do {
+                    let repos = try JSONDecoder().decode([Repos].self, from: data)
+                    let repoDetails = repos.map { (name: $0.name, language: $0.language) }
+                    completion(.success(repoDetails))
+                } catch {
+                    completion(.failure(error))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
+    
     var avatarURL: URL? {
         return URL(string: user?.avatar_url ?? "")
     }
@@ -65,6 +72,11 @@ class UserViewModel {
         }
         return ""
     }
+    
+    var repoDetails: [(name: String, language: String?)] {
+        return repos?.map { (name: $0.name, language: $0.language) } ?? []
+    }
+
     
     var location: String {
         return user?.location ?? ""

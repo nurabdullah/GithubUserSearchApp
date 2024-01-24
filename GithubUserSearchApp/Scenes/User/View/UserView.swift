@@ -44,9 +44,9 @@ class UserView: UIViewController {
         
         userViewModel.getUserRepos(username: username) { [weak self] result in
             switch result {
-            case .success:
+            case .success(let repoDetails):
                 DispatchQueue.main.async {
-                    print(self?.userViewModel.repoNames)
+                    print(repoDetails)
                 }
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
@@ -55,7 +55,7 @@ class UserView: UIViewController {
                 }
             }
         }
-    }
+        }
     
     private func updateUI() {
         usernameLabel.text = userViewModel.username
