@@ -73,14 +73,16 @@ class UserViewModel {
         return ""
     }
     
-    var repoDetails: [(name: String, language: String?)] {
-        return repos?.map { (name: $0.name, language: $0.language) } ?? []
-    }
-
     
     var location: String {
         return user?.location ?? ""
     }
+    
+    var repoDetails: [(name: String, language: String?)] {
+        return repos?.map { (name: $0.name, language: $0.language) } ?? []
+    }
+    
+    
     
 }
 

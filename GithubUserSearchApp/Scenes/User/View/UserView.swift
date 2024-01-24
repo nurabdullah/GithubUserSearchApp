@@ -55,7 +55,8 @@ class UserView: UIViewController {
                 }
             }
         }
-        }
+    }
+    
     
     private func updateUI() {
         usernameLabel.text = userViewModel.username
