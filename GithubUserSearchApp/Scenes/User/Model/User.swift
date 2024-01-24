@@ -14,3 +14,9 @@ struct User: Codable {
     let created_at: String
     let location: String
 }
+
+struct Repo: Codable{
+    let name: String
+
+}
+

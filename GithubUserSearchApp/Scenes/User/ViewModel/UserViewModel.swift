@@ -10,6 +10,12 @@ import Foundation
 class UserViewModel {
     
     private var user: User?
+    private var repos: [Repo]?
+
+       var repoNames: [String] {
+           return repos?.map { $0.name } ?? []
+       }
+
  
     func getUserInfo(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
             UserNetwork.shared.getUser(username: username) { [weak self] result in
@@ -22,7 +28,17 @@ class UserViewModel {
                 }
             }
         }
-    
+    func getUserRepos(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        UserNetwork.shared.getUserRepos(username: username) { [weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.repos = repos
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     var avatarURL: URL? {
         return URL(string: user?.avatar_url ?? "")
     }
@@ -34,6 +50,9 @@ class UserViewModel {
         return user?.public_repos ?? 0
     }
     
+    var name: String {
+        return repos?.first?.name ?? ""
+    }
     var createdAt: String {
         if let rawDate = user?.created_at {
             let dateFormatter = DateFormatter()

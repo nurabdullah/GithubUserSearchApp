@@ -10,7 +10,7 @@ import Alamofire
 
 class UserNetwork {
     static let shared = UserNetwork()
-
+    
     func getUser(username: String, completion: @escaping (Result<User, Error>) -> Void) {
         NetworkManager.shared.get(url: "users/" + username, headers: NetworkHelper.shared.headers(), params: [:]) { result in
             switch result {
@@ -26,4 +26,20 @@ class UserNetwork {
             }
         }
     }
+    func getUserRepos(username: String, completion: @escaping (Result<[Repo], Error>) -> Void) {
+        NetworkManager.shared.get(url: "users/\(username)/repos", headers: NetworkHelper.shared.headers(), params: [:]) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let repos = try JSONDecoder().decode([Repo].self, from: data)
+                    completion(.success(repos))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
+

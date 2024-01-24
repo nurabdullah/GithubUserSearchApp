@@ -14,10 +14,10 @@ class NetworkHelper{
     static let shared = NetworkHelper()
     
     var baseURL = "https://api.github.com/"
-      var token = "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"
+    var token = "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"
 
     func headers() -> [String: String] {
-           ["Authorization": "token \(token)"]
+           ["Authorization": "Bearer \(token)"]
        }
     
 }
