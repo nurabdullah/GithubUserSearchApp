@@ -304,11 +304,21 @@
                                             <constraint firstItem="zID-R1-FSN" firstAttribute="leading" secondItem="1X9-VV-mBw" secondAttribute="leading" constant="10" id="yi1-8f-mht"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8x-vG-2mc" userLabel="PieChartView" customClass="PieChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8x-vG-2mc" userLabel="GraphView">
                                         <rect key="frame" x="0.0" y="447" width="363" height="225"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21U-uZ-lRP" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="8" y="8" width="347" height="209"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                                         <constraints>
+                                            <constraint firstItem="21U-uZ-lRP" firstAttribute="top" secondItem="w8x-vG-2mc" secondAttribute="top" constant="8" id="67V-QN-yoo"/>
+                                            <constraint firstAttribute="trailing" secondItem="21U-uZ-lRP" secondAttribute="trailing" constant="8" id="HJo-eR-uG6"/>
                                             <constraint firstAttribute="height" constant="225" id="NO3-0C-WW6"/>
+                                            <constraint firstItem="21U-uZ-lRP" firstAttribute="leading" secondItem="w8x-vG-2mc" secondAttribute="leading" constant="8" id="o3K-B5-OID"/>
+                                            <constraint firstAttribute="bottom" secondItem="21U-uZ-lRP" secondAttribute="bottom" constant="8" id="wCr-QD-vgJ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -327,10 +337,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="PieChartView" destination="w8x-vG-2mc" id="hPV-2m-TTj"/>
                         <outlet property="avatarImageView" destination="fXJ-MM-R3j" id="NEi-tl-IaV"/>
                         <outlet property="createdAccountDateLabel" destination="gyo-Ce-uiM" id="gkn-Gi-s43"/>
                         <outlet property="locationLabel" destination="Z8f-3V-she" id="SjC-mW-ZSO"/>
+                        <outlet property="pieChartView" destination="21U-uZ-lRP" id="zfe-5H-7Kh"/>
                         <outlet property="publicRepoCountLabel" destination="HQn-sD-FwK" id="qQA-0q-SMy"/>
                         <outlet property="usernameLabel" destination="wpz-VT-zas" id="Inf-q2-Aea"/>
                         <outlet property="usernameTextField" destination="2Jk-He-dWl" id="jum-vH-4a6"/>
