@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class UserView: UIViewController {
     
@@ -15,6 +16,8 @@ class UserView: UIViewController {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var createdAccountDateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var pieChartView: PieChartView!
     
     private var userViewModel = UserViewModel()
     
@@ -65,14 +68,37 @@ class UserView: UIViewController {
 
 
     
+//    private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 5) {
+//        let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
+//        let totalByteCount = languages.values.reduce(0, +)
+//        for (dil, byteSayisi) in sortedLanguages {
+//            let yuzde = Double(byteSayisi) / Double(totalByteCount) * 100
+//            print("\(dil): \(String(format: "%.2f", yuzde))%")
+//        }
+//    }
+    
     private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 5) {
-        let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
-        let totalByteCount = languages.values.reduce(0, +)
-        for (dil, byteSayisi) in sortedLanguages {
-            let yuzde = Double(byteSayisi) / Double(totalByteCount) * 100
-            print("\(dil): \(String(format: "%.2f", yuzde))%")
-        }
-    }
+           var entries: [PieChartDataEntry] = []
+
+           let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
+           let totalByteCount = languages.values.reduce(0, +)
+
+           for (language, byteCount) in sortedLanguages {
+               let percentage = Double(byteCount) / Double(totalByteCount) * 100
+               entries.append(PieChartDataEntry(value: percentage, label: language))
+           }
+
+           updatePieChart(entries: entries)
+       }
+
+       private func updatePieChart(entries: [PieChartDataEntry]) {
+           let dataSet = PieChartDataSet(entries: entries, label: "Languages")
+           dataSet.colors = ChartColorTemplates.material()
+
+           let data = PieChartData(dataSet: dataSet)
+           pieChartView.data = data
+           pieChartView.notifyDataSetChanged()
+       }
 
     
     
