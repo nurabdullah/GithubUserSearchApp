@@ -202,21 +202,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1X9-VV-mBw" userLabel="UserView">
-                                <rect key="frame" x="15" y="161" width="363" height="270"/>
+                                <rect key="frame" x="15" y="161" width="363" height="269"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zID-R1-FSN">
-                                        <rect key="frame" x="10" y="10" width="343" height="250"/>
+                                        <rect key="frame" x="10" y="10" width="343" height="249"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.artframe" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fXJ-MM-R3j">
-                                                <rect key="frame" x="0.0" y="1.6666666666666572" width="150" height="247"/>
+                                                <rect key="frame" x="0.0" y="1.6666666666666572" width="150" height="246"/>
                                                 <color key="tintColor" name="BackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="150" id="BBE-zQ-dxO"/>
-                                                    <constraint firstAttribute="height" constant="250" id="eWC-SN-cXi"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="Tye-Hh-ayz">
-                                                <rect key="frame" x="150" y="0.0" width="193" height="250"/>
+                                                <rect key="frame" x="150" y="0.0" width="193" height="249"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dlk-xJ-w5Y">
                                                         <rect key="frame" x="0.0" y="0.0" width="193" height="45"/>
@@ -279,16 +278,16 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NEX-JP-k2z">
-                                                        <rect key="frame" x="0.0" y="204" width="193" height="46"/>
+                                                        <rect key="frame" x="0.0" y="204" width="193" height="45"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gz-BX-XXs">
-                                                                <rect key="frame" x="0.0" y="0.0" width="193" height="20.666666666666668"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gz-BX-XXs">
+                                                                <rect key="frame" x="0.0" y="0.0" width="193" height="20.333333333333332"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8f-3V-she">
-                                                                <rect key="frame" x="0.0" y="25.666666666666686" width="193" height="20.333333333333329"/>
+                                                                <rect key="frame" x="0.0" y="25.333333333333314" width="193" height="19.666666666666671"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -301,9 +300,6 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="1St-ef-CgS"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -315,7 +311,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8x-vG-2mc" userLabel="GraphView">
-                                <rect key="frame" x="15" y="455" width="363" height="230"/>
+                                <rect key="frame" x="15" y="454" width="363" height="230"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21U-uZ-lRP" customClass="PieChartView" customModule="Charts">
                                         <rect key="frame" x="8" y="8" width="347" height="209"/>
