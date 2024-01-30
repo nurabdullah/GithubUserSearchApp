@@ -14,7 +14,11 @@ class NetworkHelper{
     static let shared = NetworkHelper()
     
     var baseURL = "https://api.github.com/"
-    var token = "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"
+    
+ 
+    
+    
+    var token = ProcessInfo.processInfo.environment["GITHUB_RESTAPI_KEY"]
     
     func headers() -> [String: String] {
         ["Authorization": "Bearer \(token)"]

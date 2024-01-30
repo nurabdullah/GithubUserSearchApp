@@ -23,6 +23,15 @@ class UserView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.updatePieChart(entries: [])
+        
     }
     
     @IBAction func getUserInfoButtonPressed(_ sender: UIButton) {
@@ -46,78 +55,58 @@ class UserView: UIViewController {
         }
         
         userViewModel.getUserLanguages(username: username) { result in
-                    switch result {
-                    case .success(let languages):
-                        DispatchQueue.main.async {
-                            self.showLanguages(languages)
-                        }
-                    case .failure(let error):
-                        print("Error: \(error.localizedDescription)")
-                        DispatchQueue.main.async {
-                            self.showAlert(message: "Kullanıcı dilleri alınamadı.")
-                        }
-                    }
+            switch result {
+            case .success(let languages):
+                DispatchQueue.main.async {
+                    self.showLanguages(languages)
+                    
                 }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.showAlert(message: "Kullanıcı dilleri alınamadı.")
+                }
+            }
+        }
         
     }
-
+    
     
     private func showLanguages(_ languages: [String: Int]) {
         showTopLanguagesWithPercentage(languages)
     }
-
-
     
-//    private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 5) {
-//        let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
-//        let totalByteCount = languages.values.reduce(0, +)
-//        for (dil, byteSayisi) in sortedLanguages {
-//            let yuzde = Double(byteSayisi) / Double(totalByteCount) * 100
-//            print("\(dil): \(String(format: "%.2f", yuzde))%")
-//        }
-//    }
     
-    private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 5) {
-           var entries: [PieChartDataEntry] = []
-
-           let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
-           let totalByteCount = languages.values.reduce(0, +)
-
-           for (language, byteCount) in sortedLanguages {
-               let percentage = Double(byteCount) / Double(totalByteCount) * 100
-               entries.append(PieChartDataEntry(value: percentage, label: language))
-           }
-
-           updatePieChart(entries: entries)
-       }
-
-//       private func updatePieChart(entries: [PieChartDataEntry]) {
-//           let dataSet = PieChartDataSet(entries: entries, label: "Languages")
-//           dataSet.colors = ChartColorTemplates.material()
-//
-//           let data = PieChartData(dataSet: dataSet)
-//           pieChartView.data = data
-//           pieChartView.notifyDataSetChanged()
-//       }
+    private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 4) {
+        var entries: [PieChartDataEntry] = []
+        
+        let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
+        let totalByteCount = languages.values.reduce(0, +)
+        
+        for (language, byteCount) in sortedLanguages {
+            let percentage = Double(byteCount) / Double(totalByteCount) * 100
+            entries.append(PieChartDataEntry(value: percentage, label: language))
+        }
+        
+        updatePieChart(entries: entries)
+    }
+    
     
     private func updatePieChart(entries: [PieChartDataEntry]) {
         var dataSet: PieChartDataSet
-
+        
         if entries.isEmpty {
-            // If entries are empty, add a default entry to display in the chart
-            dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 100, label: "No Data")], label: "")
-            dataSet.colors = [UIColor.lightGray]
+            dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 1, label: "Veri Yok")], label: "")
+            dataSet.colors = ChartColorTemplates.pastel()
         } else {
-            dataSet = PieChartDataSet(entries: entries, label: "Languages")
-            dataSet.colors = ChartColorTemplates.material()
+            dataSet = PieChartDataSet(entries: entries, label: "Diller")
+            dataSet.colors = ChartColorTemplates.pastel()
         }
-
+        
         let data = PieChartData(dataSet: dataSet)
         pieChartView.data = data
         pieChartView.notifyDataSetChanged()
     }
-
-
     
     
     
