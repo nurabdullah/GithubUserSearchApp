@@ -91,14 +91,32 @@ class UserView: UIViewController {
            updatePieChart(entries: entries)
        }
 
-       private func updatePieChart(entries: [PieChartDataEntry]) {
-           let dataSet = PieChartDataSet(entries: entries, label: "Languages")
-           dataSet.colors = ChartColorTemplates.material()
+//       private func updatePieChart(entries: [PieChartDataEntry]) {
+//           let dataSet = PieChartDataSet(entries: entries, label: "Languages")
+//           dataSet.colors = ChartColorTemplates.material()
+//
+//           let data = PieChartData(dataSet: dataSet)
+//           pieChartView.data = data
+//           pieChartView.notifyDataSetChanged()
+//       }
+    
+    private func updatePieChart(entries: [PieChartDataEntry]) {
+        var dataSet: PieChartDataSet
 
-           let data = PieChartData(dataSet: dataSet)
-           pieChartView.data = data
-           pieChartView.notifyDataSetChanged()
-       }
+        if entries.isEmpty {
+            // If entries are empty, add a default entry to display in the chart
+            dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 100, label: "No Data")], label: "")
+            dataSet.colors = [UIColor.lightGray]
+        } else {
+            dataSet = PieChartDataSet(entries: entries, label: "Languages")
+            dataSet.colors = ChartColorTemplates.material()
+        }
+
+        let data = PieChartData(dataSet: dataSet)
+        pieChartView.data = data
+        pieChartView.notifyDataSetChanged()
+    }
+
 
     
     
