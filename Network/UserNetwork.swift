@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import Charts
 
 class UserNetwork {
     static let shared = UserNetwork()

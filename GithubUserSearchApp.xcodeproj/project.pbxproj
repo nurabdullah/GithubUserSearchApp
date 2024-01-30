@@ -11,6 +11,7 @@
 		D91456BA2B5C5E16006A06DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91456B92B5C5E16006A06DA /* User.swift */; };
 		D91456BF2B5C6231006A06DA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91456BE2B5C6231006A06DA /* UserViewModel.swift */; };
 		D91456C12B5C6304006A06DA /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91456C02B5C6304006A06DA /* UserView.swift */; };
+		D97C1F8F2B6939ED00EF8350 /* DenemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97C1F8E2B6939ED00EF8350 /* DenemeViewController.swift */; };
 		D9C72B692B5D38DB009423CD /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C72B682B5D38DB009423CD /* NetworkHelper.swift */; };
 		D9C72B6B2B5D38EF009423CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C72B6A2B5D38EF009423CD /* NetworkManager.swift */; };
 		D9C72B6E2B5D3C26009423CD /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C72B6D2B5D3C26009423CD /* UserNetwork.swift */; };
@@ -29,6 +30,7 @@
 		D91456B92B5C5E16006A06DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D91456BE2B5C6231006A06DA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		D91456C02B5C6304006A06DA /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		D97C1F8E2B6939ED00EF8350 /* DenemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenemeViewController.swift; sourceTree = "<group>"; };
 		D9C72B682B5D38DB009423CD /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		D9C72B6A2B5D38EF009423CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D9C72B6D2B5D3C26009423CD /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				D91456B62B5C5DCD006A06DA /* Network */,
 				D91456C42B5C8367006A06DA /* Screen */,
 				D91456B42B5C5D94006A06DA /* Scenes */,
+				D97C1F8E2B6939ED00EF8350 /* DenemeViewController.swift */,
 			);
 			path = GithubUserSearchApp;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			files = (
 				D9C72B6B2B5D38EF009423CD /* NetworkManager.swift in Sources */,
 				D9C72B692B5D38DB009423CD /* NetworkHelper.swift in Sources */,
+				D97C1F8F2B6939ED00EF8350 /* DenemeViewController.swift in Sources */,
 				D91456C12B5C6304006A06DA /* UserView.swift in Sources */,
 				D9E893E32B5B13E000CE7919 /* AppDelegate.swift in Sources */,
 				D91456BF2B5C6231006A06DA /* UserViewModel.swift in Sources */,

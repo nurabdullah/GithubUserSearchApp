@@ -8,6 +8,7 @@ target 'GithubUserSearchApp' do
   # Pods for GithubUserSearchApp
 
 pod 'Alamofire'
+pod 'Charts'
 
 
 end
