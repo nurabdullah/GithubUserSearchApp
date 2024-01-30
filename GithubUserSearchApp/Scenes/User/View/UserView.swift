@@ -42,21 +42,26 @@ class UserView: UIViewController {
             }
         }
         
-        
-        
-        userViewModel.getUserRepos(username: username) { [weak self] result in
-            switch result {
-            case .success(let repoDetails):
-                DispatchQueue.main.async {
-                    self?.userViewModel.printLanguageUsage(repoDetails: repoDetails)
+        userViewModel.getUserLanguages(username: username) { result in
+                    switch result {
+                    case .success(let languages):
+                        DispatchQueue.main.async {
+                            self.showLanguages(languages)
+                        }
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
+                        DispatchQueue.main.async {
+                            self.showAlert(message: "Kullanıcı dilleri alınamadı.")
+                        }
+                    }
                 }
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    self?.showAlert(message: "Kullanıcı bulunamadı.")
-                }
+        
+    }
+    
+    private func showLanguages(_ languages: [String: Int]) {
+            for (language, byteCount) in languages {
+                print("\(language): \(byteCount)")
             }
-        }
         }
     
     

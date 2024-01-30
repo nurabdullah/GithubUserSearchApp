@@ -15,8 +15,6 @@ struct User: Codable {
     let location: String
 }
 
-struct Repos: Codable {
+struct Repository: Codable {
     let name: String
-    let language: String?
 }
-

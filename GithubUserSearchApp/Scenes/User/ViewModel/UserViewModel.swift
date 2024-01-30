@@ -10,12 +10,8 @@ import Foundation
 class UserViewModel {
     
     private var user: User?
-    private var repos: [Repos]?
     
-    var repoNames: [String] {
-        return repos?.map { $0.name } ?? []
-    }
-    
+   
     
     func getUserInfo(username: String, completion: @escaping (Result<Void, Error>) -> Void) {
         UserNetwork.shared.getUser(username: username) { [weak self] result in
@@ -29,40 +25,17 @@ class UserViewModel {
         }
     }
     
-    func getUserRepos(username: String, completion: @escaping (Result<[(name: String, language: String?)], Error>) -> Void) {
-        NetworkManager.shared.get(url: "users/\(username)/repos", headers: NetworkHelper.shared.headers(), params: [:]) { result in
-            switch result {
-            case .success(let data):
-                do {
-                    let repos = try JSONDecoder().decode([Repos].self, from: data)
-                    let repoDetails = repos.map { (name: $0.name, language: $0.language) }
-                    completion(.success(repoDetails))
-                } catch {
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
+    func getUserLanguages(username: String, completion: @escaping (Result<[String: Int], Error>) -> Void) {
+           UserNetwork.shared.getUserRepos(username: username) { result in
+               switch result {
+               case .success(let languages):
+                   completion(.success(languages))
+               case .failure(let error):
+                   completion(.failure(error))
+               }
+           }
+       }
     
-    func printLanguageUsage(repoDetails: [(name: String, language: String?)]) {
-        var languageCounts: [String: Int] = [:]
-
-        for project in repoDetails {
-            if let language = project.language {
-                if let count = languageCounts[language] {
-                    languageCounts[language] = count + 1
-                } else {
-                    languageCounts[language] = 1
-                }
-            }
-        }
-
-        for (language, count) in languageCounts {
-            print("\(language): \(count) proje")
-        }
-    }
         
     
     var avatarURL: URL? {
@@ -72,13 +45,11 @@ class UserViewModel {
     var username: String {
         return user?.login ?? ""
     }
+    
     var publicRepoCount: Int {
         return user?.public_repos ?? 0
     }
     
-    var name: String {
-        return repos?.first?.name ?? ""
-    }
     var createdAt: String {
         if let rawDate = user?.created_at {
             let dateFormatter = DateFormatter()
@@ -92,16 +63,8 @@ class UserViewModel {
         return ""
     }
     
-    
     var location: String {
         return user?.location ?? ""
     }
-    
-    var repoDetails: [(name: String, language: String?)] {
-        return repos?.map { (name: $0.name, language: $0.language) } ?? []
-    }
-    
-    
-    
 }
 
