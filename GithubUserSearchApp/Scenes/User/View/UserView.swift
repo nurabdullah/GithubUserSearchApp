@@ -57,13 +57,23 @@ class UserView: UIViewController {
                 }
         
     }
+
     
     private func showLanguages(_ languages: [String: Int]) {
-            for (language, byteCount) in languages {
-                print("\(language): \(byteCount)")
-            }
-        }
+        showTopLanguagesWithPercentage(languages)
+    }
+
+
     
+    private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 5) {
+        let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
+        let totalByteCount = languages.values.reduce(0, +)
+        for (dil, byteSayisi) in sortedLanguages {
+            let yuzde = Double(byteSayisi) / Double(totalByteCount) * 100
+            print("\(dil): \(String(format: "%.2f", yuzde))%")
+        }
+    }
+
     
     
     
