@@ -105,10 +105,10 @@ class UserView: UIViewController {
         
         for (language, byteCount) in sortedLanguages {
             let percentage = Double(byteCount) / Double(totalByteCount) * 100
-            let percentageString = String(format: "%.1f%%", percentage)
+            let percentageString = String(format: "%.1f%% %@", percentage, language)
             entries.append(PieChartDataEntry(value: percentage, label: percentageString))
-            
         }
+
         
         updatePieChart(entries: entries)
     }
@@ -121,7 +121,7 @@ class UserView: UIViewController {
             dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 0, label: "")], label: "Veriler Yüklenemedi")
             dataSet.colors = ChartColorTemplates.pastel()
         } else {
-            dataSet = PieChartDataSet(entries: entries, label: "Diller")
+            dataSet = PieChartDataSet(entries: entries, label: "language")
             dataSet.colors = ChartColorTemplates.pastel()
         }
         
