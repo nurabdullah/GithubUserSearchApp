@@ -115,7 +115,7 @@ class UserView: UIViewController {
     
     private func updatePieChart(entries: [PieChartDataEntry]) {
         var dataSet: PieChartDataSet
-        
+
         if entries.isEmpty {
             dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 0, label: "")], label: "Veriler Yüklenemedi")
             dataSet.colors = ChartColorTemplates.pastel()
@@ -128,11 +128,12 @@ class UserView: UIViewController {
         let labelFont = UIFont.boldSystemFont(ofSize: 17)
         dataSet.valueFont = labelFont
         
-        
         let data = PieChartData(dataSet: dataSet)
         pieChartView.data = data
+        pieChartView.drawEntryLabelsEnabled = false
         pieChartView.notifyDataSetChanged()
     }
+
     
     
     
