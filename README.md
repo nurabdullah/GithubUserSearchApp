@@ -2,7 +2,7 @@
 
 **Kullanıcı adı girilen Github kullanıcısının bir takım bilgileri ve  kullandığı dilleri, oranlarını listelemektir**
 
-###  Proje ilgili notlar
+###  Proje ile ilgili notlar
 
 >  Projemi MVVM Mimarisi kullanarak yazdım, amacımda mvvm mimarisine hakimiyet kazanmaktı. 
 
