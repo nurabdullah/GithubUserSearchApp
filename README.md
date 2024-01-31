@@ -2,6 +2,15 @@
 
 **Kullanıcı adı girilen Github kullanıcısının bir takım bilgileri ve  kullandığı dilleri, oranlarını listelemektir**
 
+###  Proje ilgili notlar
+
+>  Projemi MVVM Mimarisi kullanarak yazdım, amacımda mvvm mimarisine hakimiyet kazanmaktı. 
+
+> Projemde 3.part uygulamaları da kullandım. Alamofire buna bir örnek, apiye istek atarken çok ciddi kolaylık sağlıyor bizlere
+
+> Güvenlik gereği kendi tokenimi gizledim. Apiye istek atmadan önce kendi tokeninizi girmeniz gerekiyor
+
+
 
 `Kullanılan paketler`
 
