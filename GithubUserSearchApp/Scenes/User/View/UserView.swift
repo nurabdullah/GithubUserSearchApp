@@ -29,7 +29,7 @@ class UserView: UIViewController {
         super.viewDidLoad()
     }
     
-
+    
     override func viewDidAppear(_ animated: Bool) {
         self.updatePieChart(entries: [])
         pieChartView.drawHoleEnabled = false
@@ -42,14 +42,14 @@ class UserView: UIViewController {
         publicRepoCountTİtle.isHidden = false
         createdAccountDateTitle.isHidden = false
         locationTitle.isHidden = false
-       }
-
-       func hideTitleLabels() {
-           userNameTitle.isHidden = true
-           publicRepoCountTİtle.isHidden = true
-           createdAccountDateTitle.isHidden = true
-           locationTitle.isHidden = true
-       }
+    }
+    
+    func hideTitleLabels() {
+        userNameTitle.isHidden = true
+        publicRepoCountTİtle.isHidden = true
+        createdAccountDateTitle.isHidden = true
+        locationTitle.isHidden = true
+    }
     
     
     @IBAction func getUserInfoButtonPressed(_ sender: UIButton) {
@@ -65,7 +65,7 @@ class UserView: UIViewController {
                 DispatchQueue.main.async {
                     self?.updateUI()
                     self?.showTitleLabels()
-
+                    
                 }
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
@@ -97,7 +97,6 @@ class UserView: UIViewController {
         showTopLanguagesWithPercentage(languages)
     }
     
-    
     private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 5) {
         var entries: [PieChartDataEntry] = []
         
@@ -106,7 +105,9 @@ class UserView: UIViewController {
         
         for (language, byteCount) in sortedLanguages {
             let percentage = Double(byteCount) / Double(totalByteCount) * 100
-            entries.append(PieChartDataEntry(value: percentage, label: language))
+            let percentageString = String(format: "%.1f%%", percentage)
+            entries.append(PieChartDataEntry(value: percentage, label: percentageString))
+            
         }
         
         updatePieChart(entries: entries)
@@ -115,7 +116,7 @@ class UserView: UIViewController {
     
     private func updatePieChart(entries: [PieChartDataEntry]) {
         var dataSet: PieChartDataSet
-
+        
         if entries.isEmpty {
             dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 0, label: "")], label: "Veriler Yüklenemedi")
             dataSet.colors = ChartColorTemplates.pastel()
@@ -133,7 +134,7 @@ class UserView: UIViewController {
         pieChartView.drawEntryLabelsEnabled = false
         pieChartView.notifyDataSetChanged()
     }
-
+    
     
     
     
