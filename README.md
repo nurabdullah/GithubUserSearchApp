@@ -1,3 +1,2 @@
-# GithubUserSearchApp
 
-![zyro-image](https://github.com/nurabdullah/GithubUserSearchApp/assets/48687868/e6ea69b7-a25e-4557-bfb7-a758545d7a38)
+![zyro-image](https://github.com/nurabdullah/GithubUserSearchApp/assets/48687868/a2d839b7-03b2-4985-bb45-f91bd7eef246)
