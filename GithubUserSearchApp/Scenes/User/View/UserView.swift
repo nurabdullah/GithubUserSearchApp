@@ -30,8 +30,7 @@ class UserView: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.updatePieChart(entries: [])
-        pieChartView.drawHoleEnabled = false
-        
+        pieChartView.drawHoleEnabled = false 
     }
     
     @IBAction func getUserInfoButtonPressed(_ sender: UIButton) {
