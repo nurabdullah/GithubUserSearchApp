@@ -311,17 +311,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w8x-vG-2mc" userLabel="GraphView">
-                                <rect key="frame" x="15" y="454" width="363" height="230"/>
+                                <rect key="frame" x="15" y="454" width="363" height="350"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21U-uZ-lRP" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="8" y="8" width="347" height="209"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21U-uZ-lRP" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="8" width="347" height="334"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="334" id="Uwk-hs-zpj"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="At3-bY-i8R"/>
+                                    <constraint firstItem="21U-uZ-lRP" firstAttribute="top" secondItem="w8x-vG-2mc" secondAttribute="top" constant="8" id="6Rm-6a-96L"/>
+                                    <constraint firstAttribute="height" constant="350" id="At3-bY-i8R"/>
+                                    <constraint firstAttribute="bottom" secondItem="21U-uZ-lRP" secondAttribute="bottom" constant="8" id="Ceu-Fr-pjZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="21U-uZ-lRP" secondAttribute="trailing" constant="8" id="Gj9-bB-GJy"/>
+                                    <constraint firstItem="21U-uZ-lRP" firstAttribute="leading" secondItem="w8x-vG-2mc" secondAttribute="leading" constant="8" id="fRd-Le-j3I"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -335,6 +341,7 @@
                             <constraint firstItem="Cju-sd-v2S" firstAttribute="trailing" secondItem="1X9-VV-mBw" secondAttribute="trailing" constant="15" id="It1-VS-71z"/>
                             <constraint firstItem="fUn-vW-VtX" firstAttribute="top" secondItem="Cju-sd-v2S" secondAttribute="top" constant="15" id="Wvx-d2-qlR"/>
                             <constraint firstItem="Cju-sd-v2S" firstAttribute="trailing" secondItem="fUn-vW-VtX" secondAttribute="trailing" constant="15" id="XxY-MP-FOi"/>
+                            <constraint firstItem="Cju-sd-v2S" firstAttribute="bottom" secondItem="w8x-vG-2mc" secondAttribute="bottom" constant="14" id="cmI-Lw-O03"/>
                             <constraint firstItem="w8x-vG-2mc" firstAttribute="leading" secondItem="Cju-sd-v2S" secondAttribute="leading" constant="15" id="fg5-kM-4hr"/>
                             <constraint firstItem="fUn-vW-VtX" firstAttribute="leading" secondItem="Cju-sd-v2S" secondAttribute="leading" constant="15" id="vSk-c8-3pp"/>
                         </constraints>

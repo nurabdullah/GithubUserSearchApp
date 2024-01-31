@@ -23,7 +23,6 @@ class UserView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     
@@ -31,6 +30,7 @@ class UserView: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.updatePieChart(entries: [])
+        pieChartView.drawHoleEnabled = false
         
     }
     
@@ -59,7 +59,7 @@ class UserView: UIViewController {
             case .success(let languages):
                 DispatchQueue.main.async {
                     self.showLanguages(languages)
-                    
+                    self.pieChartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
                 }
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
@@ -77,7 +77,7 @@ class UserView: UIViewController {
     }
     
     
-    private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 4) {
+    private func showTopLanguagesWithPercentage(_ languages: [String: Int], topCount: Int = 5) {
         var entries: [PieChartDataEntry] = []
         
         let sortedLanguages = languages.sorted { $0.value > $1.value }.prefix(topCount)
@@ -96,12 +96,17 @@ class UserView: UIViewController {
         var dataSet: PieChartDataSet
         
         if entries.isEmpty {
-            dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 1, label: "Veri Yok")], label: "")
+            dataSet = PieChartDataSet(entries: [PieChartDataEntry(value: 0, label: "")], label: "Veriler Yüklenemedi")
             dataSet.colors = ChartColorTemplates.pastel()
         } else {
             dataSet = PieChartDataSet(entries: entries, label: "Diller")
             dataSet.colors = ChartColorTemplates.pastel()
         }
+        
+        let entryLabelFont = UIFont.systemFont(ofSize: 17)
+        let labelFont = UIFont.boldSystemFont(ofSize: 17)
+        dataSet.valueFont = labelFont
+        
         
         let data = PieChartData(dataSet: dataSet)
         pieChartView.data = data
