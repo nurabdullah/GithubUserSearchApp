@@ -17,21 +17,40 @@ class UserView: UIViewController {
     @IBOutlet weak var createdAccountDateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var userNameTitle: UILabel!
+    @IBOutlet weak var publicRepoCountTİtle: UILabel!
+    @IBOutlet weak var createdAccountDateTitle: UILabel!
+    @IBOutlet weak var locationTitle: UILabel!
     
+    @IBOutlet weak var pieChartView: PieChartView!
     private var userViewModel = UserViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
         self.updatePieChart(entries: [])
-        pieChartView.drawHoleEnabled = false 
+        pieChartView.drawHoleEnabled = false
+        hideTitleLabels()
     }
+    
+    
+    func showTitleLabels() {
+        userNameTitle.isHidden = false
+        publicRepoCountTİtle.isHidden = false
+        createdAccountDateTitle.isHidden = false
+        locationTitle.isHidden = false
+       }
+
+       func hideTitleLabels() {
+           userNameTitle.isHidden = true
+           publicRepoCountTİtle.isHidden = true
+           createdAccountDateTitle.isHidden = true
+           locationTitle.isHidden = true
+       }
+    
     
     @IBAction func getUserInfoButtonPressed(_ sender: UIButton) {
         guard let username = usernameTextField.text, !username.isEmpty else {
@@ -39,11 +58,14 @@ class UserView: UIViewController {
             return
         }
         
+        
         userViewModel.getUserInfo(username: username) { [weak self] result in
             switch result {
             case .success:
                 DispatchQueue.main.async {
                     self?.updateUI()
+                    self?.showTitleLabels()
+
                 }
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
