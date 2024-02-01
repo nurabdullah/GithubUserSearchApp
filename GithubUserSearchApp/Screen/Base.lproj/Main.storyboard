@@ -206,7 +206,7 @@
                         <outlet property="locationTitle" destination="0gz-BX-XXs" id="Nhk-dd-XZt"/>
                         <outlet property="pieChartView" destination="21U-uZ-lRP" id="zfe-5H-7Kh"/>
                         <outlet property="publicRepoCountLabel" destination="HQn-sD-FwK" id="qQA-0q-SMy"/>
-                        <outlet property="publicRepoCountTİtle" destination="meY-WS-4JB" id="ZxV-fG-a8Q"/>
+                        <outlet property="publicRepoCountTitle" destination="meY-WS-4JB" id="ZxV-fG-a8Q"/>
                         <outlet property="userNameTitle" destination="h1i-Wh-h7S" id="oyd-Al-Al6"/>
                         <outlet property="usernameLabel" destination="wpz-VT-zas" id="Inf-q2-Aea"/>
                         <outlet property="usernameTextField" destination="2Jk-He-dWl" id="jum-vH-4a6"/>

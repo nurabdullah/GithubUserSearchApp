@@ -18,7 +18,7 @@ class UserView: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var userNameTitle: UILabel!
-    @IBOutlet weak var publicRepoCountTİtle: UILabel!
+    @IBOutlet weak var publicRepoCountTitle: UILabel!
     @IBOutlet weak var createdAccountDateTitle: UILabel!
     @IBOutlet weak var locationTitle: UILabel!
     
@@ -39,14 +39,14 @@ class UserView: UIViewController {
     
     func showTitleLabels() {
         userNameTitle.isHidden = false
-        publicRepoCountTİtle.isHidden = false
+        publicRepoCountTitle.isHidden = false
         createdAccountDateTitle.isHidden = false
         locationTitle.isHidden = false
     }
     
     func hideTitleLabels() {
         userNameTitle.isHidden = true
-        publicRepoCountTİtle.isHidden = true
+        publicRepoCountTitle.isHidden = true
         createdAccountDateTitle.isHidden = true
         locationTitle.isHidden = true
     }
@@ -154,9 +154,8 @@ class UserView: UIViewController {
                 }
             }.resume()
         }
-        
-        
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
