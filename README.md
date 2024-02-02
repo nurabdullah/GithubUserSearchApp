@@ -4,11 +4,11 @@
 
 ###  Proje ile ilgili notlar
 
->  Projemi MVVM Mimarisi kullanarak yazdım, amacımda mvvm mimarisine hakimiyet kazanmaktı. 
+>  Projemi MVVM mimarisi kullanarak yazdım; amacım, MVVM mimarisine hakimiyet kazanmaktı. 
 
-> Projemde 3.parti uygulamaları da kullandım. Alamofire buna bir örnek, apiye istek atarken çok ciddi kolaylık sağlıyor bizlere
+> Projemde üçüncü parti uygulamaları da kullandım. Alamofire, bunun bir örneğidir ve API'ye istek atarken bize büyük kolaylık sağlıyor.
 
-> Güvenlik gereği kendi tokenimi gizledim. Apiye istek atmadan önce kendi tokeninizi girmeniz gerekiyor
+> Güvenlik gereği, kendi tokenimi gizledim. API'ye istek atmadan önce kendi tokeninizi girmeniz gerekiyor.
 
 
 
